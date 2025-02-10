@@ -1,0 +1,290 @@
+/* styles.cssssss */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.sound-toggle {
+  text-align: center;
+
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+/* for the checkbox */
+#sound-toggle {
+  cursor: pointer;
+  margin-left: 15px;
+}
+#sound-toggle,
+label {
+  color: #109231;
+}
+
+#gps_icon {
+  transition: 0.5s;
+}
+
+#gps_icon,
+a {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: #109231;
+  margin-right: 7px;
+  transition: 0.5s;
+  img {
+    margin-right: 10px;
+  }
+}
+#gps_icon a button {
+  cursor: pointer;
+  transition: all 0.1s;
+  width: 90px;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  height: 25px;
+  border-radius: 5px;
+}
+
+#gps_icon a button:hover {
+  transition: all 0.1s;
+  background-color: #148518;
+
+  width: 95px;
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0.8rem;
+}
+
+.sensor-card {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.sensor-card:hover {
+  transform: scale(1.05);
+  border-color: #4caf50;
+}
+
+.sensor-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  font-weight: bold;
+  color: green;
+}
+
+.sensor-card.alert .status {
+  color: red;
+}
+
+.distance {
+  font-weight: normal;
+  color: #333;
+}
+
+/* Buzzer Image */
+.sensor-card .buzzer {
+  display: none; /* Hidden by default */
+  width: 40px; /* Adjust size */
+  height: 40px;
+  margin: 10px auto; /* Center it within the card */
+}
+
+.sensor-card.alert .buzzer {
+  display: block;
+  animation: buzz 0.5s infinite; /* Add subtle buzzing animation */
+}
+
+/* Buzz Animation */
+@keyframes buzz {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile-Responsive Design */
+@media (max-width: 600px) {
+  .sensor-grid {
+    grid-template-columns: 1fr; /* Stack cards in one column */
+  }
+
+  .sensor-card {
+    padding: 0.5rem; /* Reduce padding for smaller screens */
+  }
+
+  .sensor-icon {
+    width: 40px; /* Adjust icon size */
+    height: 40px;
+  }
+
+  .buzzer {
+    width: 30px; /* Adjust buzzer size */
+    height: 30px;
+  }
+}
+
+/* ABOUT PAGE
+ */
+/* About Section Styling */
+#about {
+  padding: 2rem;
+  background-color: #ffffff;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  color: #333;
+}
+
+#about h1,
+#about h2 {
+  text-align: center;
+  color: #4caf50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+#about h2 {
+  font-size: 1.3rem;
+}
+
+#about p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+#about ul,
+#about ol {
+  margin: 1.2rem 0;
+  padding-left: 1.5rem;
+}
+
+#about ul li {
+  margin-bottom: 0.8rem;
+}
+
+#about ol li {
+  margin-bottom: 0.8rem;
+  counter-increment: section;
+  list-style: none;
+}
+
+#about ol li::before {
+  content: counter(section) ". ";
+  font-weight: bold;
+  color: #4caf50;
+}
+
+#about a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#about a:hover {
+  text-decoration: underline;
+}
+
+.all-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+footer {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 0.3rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.footer-details a {
+  text-decoration: underline;
+  color: #fff;
+}
+/* Mobile-Responsive Design */
+@media (max-width: 600px) {
+  .all-footer {
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    .footer-details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .footer-details a {
+      text-decoration: underline;
+
+      color: #fff;
+    }
+
+    #gps_icon {
+      display: none;
+    }
+  }
+
+  /* PRIVACY PAGE */
+  .privacy-policy-date {
+    display: none;
+  }
+}
