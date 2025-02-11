@@ -22,27 +22,50 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Reference to the "gps1" data in the database
+// Reference to the "gps1" and "gps2" data in the database
 const gps1Ref = ref(db, "trackers/gps1");
+const gps2Ref = ref(db, "trackers/gps2");
 
-// Listen for changes in the database and update the UI
+// Function to update the UI with GPS data
+function updateUI(sensorId, data) {
+  const sensorElement = document.querySelector(`#${sensorId}`);
+  if (sensorElement) {
+    if (data) {
+      sensorElement.querySelector(".status").textContent = "Active";
+      sensorElement.querySelector(".distance").innerHTML = `
+        <strong>Latitude:</strong> ${data.latitude}, <br>
+        <strong>Longitude:</strong> ${data.longitude} <br><br>
+        <em><small>Date/Time: ${data.timestamp}</em></small>
+        <br>
+        <br>
+        <button style="background-color: #148518; color: #fff; border: none; width: 150px; height: 30px; border-radius: 10px; cursor: pointer">See More...</button>
+      `;
+    } else {
+      sensorElement.querySelector(".distance").textContent = "No Data";
+    }
+  }
+}
+
+// Listen for changes in the database and update the UI for gps1
 onValue(gps1Ref, (snapshot) => {
   if (snapshot.exists()) {
     const data = snapshot.val();
     console.log("GPS1 Data:", data); // Debugging
-
-    // Select elements to update
-    document.querySelector("#sensor-1 .status").textContent = "Active";
-    document.querySelector("#sensor-1 .distance").innerHTML = `
-      <strong>Latitude:</strong> ${data.latitude}, <br>
-      <strong>Longitude:</strong> ${data.longitude} <br><br>
-      <em><small>Date/Time: ${data.timestamp}</em></small>
-      <br>
-      <br>
-      <button style="background-color:  #148518 ; color: #fff; border: none; width: 150px;; height: 30px; border-radius: 10px; cursor: pointer">See More...</button>
-    `;
+    updateUI("sensor-1", data);
   } else {
     console.log("No data available for gps1");
-    document.querySelector("#sensor-1 .distance").textContent = "No Data";
+    updateUI("sensor-1", null);
+  }
+});
+
+// Listen for changes in the database and update the UI for gps2
+onValue(gps2Ref, (snapshot) => {
+  if (snapshot.exists()) {
+    const data = snapshot.val();
+    console.log("GPS2 Data:", data); // Debugging
+    updateUI("sensor-2", data);
+  } else {
+    console.log("No data available for gps2");
+    updateUI("sensor-2", null);
   }
 });
