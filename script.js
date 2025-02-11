@@ -37,6 +37,9 @@ onValue(gps1Ref, (snapshot) => {
       <strong>Latitude:</strong> ${data.latitude}, <br>
       <strong>Longitude:</strong> ${data.longitude} <br><br>
       <em><small>Date/Time: ${data.timestamp}</em></small>
+      <br>
+      <br>
+      <button>See More...</button>
     `;
   } else {
     console.log("No data available for gps1");
