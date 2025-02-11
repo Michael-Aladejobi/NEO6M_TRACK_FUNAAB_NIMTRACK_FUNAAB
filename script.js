@@ -39,7 +39,7 @@ onValue(gps1Ref, (snapshot) => {
       <em><small>Date/Time: ${data.timestamp}</em></small>
       <br>
       <br>
-      <button>See More...</button>
+      <button style="background-color:  #148518 ; color: #fff; border: none; width: 150px;; height: 30px; border-radius: 10px; cursor: pointer">See More...</button>
     `;
   } else {
     console.log("No data available for gps1");
