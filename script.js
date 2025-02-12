@@ -36,7 +36,7 @@ function updateUI(sensorId, data) {
         <strong>Latitude:</strong> ${data.latitude}, <br>
         <strong>Longitude:</strong> ${data.longitude} 
         <br><br>
-        <strong>Temperature: Coming soon...</strong> <br><br>
+        <strong>Body Temperature: Coming soon...</strong> <br><br>
         <em><small>Date/Time: ${data.timestamp}</em></small>
         <br>
         <br>
