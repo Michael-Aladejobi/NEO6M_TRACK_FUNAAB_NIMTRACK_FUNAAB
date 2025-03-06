@@ -40,7 +40,7 @@ onValue(gps1Ref, (snapshot) => {
       <strong>Speed:</strong> ${data.speed} m/s <br>
       <strong>Satellites:</strong> ${data.satellites} <br>
       <strong>HDOP:</strong> ${data.hdop} <br>
-      <strong>Time:</strong> ${data.timestamp}
+      <strong>Last-Seen</strong> ${data.timestamp}
     `;
  document.querySelector("#sensor-1 .temperature").innerHTML = `
       <strong>Body Temperature:</strong> ${data.temperatureC}°C
