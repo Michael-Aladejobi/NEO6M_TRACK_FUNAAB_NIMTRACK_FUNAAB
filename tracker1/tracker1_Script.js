@@ -42,7 +42,10 @@ onValue(gps1Ref, (snapshot) => {
       <strong>HDOP:</strong> ${data.hdop} <br>
       <strong>Time:</strong> ${data.timestamp}
     `;
-
+ document.querySelector("#sensor-1 .temperature").innerHTML = `
+      <strong>Body Temperature:</strong> ${data.temperatureC}°C
+      
+    `;
     // Update the iframe with the new latitude and longitude
     const iframe = document.querySelector("#mapIframe");
     iframe.src = `https://www.google.com/maps?q=${data.latitude},${data.longitude}&output=embed`;
