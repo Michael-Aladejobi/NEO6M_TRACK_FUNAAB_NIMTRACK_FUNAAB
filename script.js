@@ -37,7 +37,7 @@ function updateUI(sensorId, data) {
         <strong>Longitude:</strong> ${data.longitude} 
         <br><br>
         <strong>Body Temperature: ${data.temperatureC}°C</strong> <br><br>
-        <em><small>Date/Time: ${data.timestamp}</em></small>
+        <em><small>Last-Seen: ${data.timestamp}</em></small>
         <br>
         <br>
         <button style="background-color: #148518; color: #fff; border: none; width: 150px; height: 30px; border-radius: 10px; cursor: pointer">See More...</button>
