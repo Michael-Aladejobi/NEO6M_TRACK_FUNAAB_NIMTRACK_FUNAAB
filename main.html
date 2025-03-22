@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- A Real-Time IoT-Based Virtual Fencing System for Effective Livestock Management Using Proximity Sensors and ESP32. -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="assets/favicon.jpg" />
+    <link rel="apple-touch-icon" href="assets/favicon.jpg" />
+    <link rel="manifest" href="manifest.json" />
+    <title>NimTechnology</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      a {
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+      "
+    >
+      <a href="index.html">
+        <h1 style="padding-right: 4px">NimTrack</h1>
+      </a>
+      <div>
+        <img src="assets/active-indicator.gif" alt="Active" width="30px" />
+      </div>
+    </header>
+    <main>
+      <div
+        id="installPopup"
+        style="
+          display: none;
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: white;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+          text-align: center;
+        "
+      >
+        <p>Install NimTrack for quick access!</p>
+        <button
+          id="installButton"
+          style="
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+          "
+        >
+          Install
+        </button>
+        <button
+          id="closePopup"
+          style="
+            margin-left: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+          "
+        >
+          Close
+        </button>
+      </div>
+
+      <div class="sensor-grid">
+        <div
+          class="sensor-card"
+          id="sensor-1"
+          onclick="location.href='tracker1/index1.html'"
+        >
+          <img
+            src="assets/gps_icon.png"
+            alt="Sensor 1 Icon"
+            class="sensor-icon"
+          />
+          <h2>Tracker 1</h2>
+          <p>Status: <span class="status">Not Active</span></p>
+          <p><span class="distance">N/A</span></p>
+        </div>
+        <div
+          class="sensor-card"
+          id="sensor-2"
+          onclick="location.href='tracker2/index2.html'"
+        >
+          <img
+            src="assets/gps_icon.png"
+            alt="Sensor 2 Icon"
+            class="sensor-icon"
+          />
+          <h2>Tracker 2</h2>
+          <p>Status: <span class="status">Not Active</span></p>
+          <p><span class="distance">N/A</span></p>
+        </div>
+        <div class="sensor-card" id="sensor-3">
+          <img
+            src="assets/gps_icon.png"
+            alt="Sensor 3 Icon"
+            class="sensor-icon"
+          />
+          <h2>Tracker 3</h2>
+          <p>Status: <span class="status">Not Active</span></p>
+          <p><span class="distance">N/A</span></p>
+        </div>
+        <div class="sensor-card" id="sensor-4">
+          <img
+            src="assets/gps_icon.png"
+            alt="Sen4or 4 Icon"
+            class="sensor-icon"
+          />
+          <h2>Tracker 4</h2>
+          <p>Status: <span class="status">Not Active</span></p>
+          <p><span class="distance">N/A</span></p>
+        </div>
+      </div>
+      <br /><br />
+      <br /><br />
+      <br /><br />
+    </main>
+    <footer>
+      <div class="all-footer">
+        <div>
+          <div class="footer-details"></div>
+          <p style="margin-bottom: 5px">
+            &copy; NimTechnology | Real-Time Monitoring
+          </p>
+          <small style="font-size: 12px"
+            >Supervised by Prof. Mrs Arogundade</small
+          >
+        </div>
+
+        <!-- <div
+          id="gps_icon"
+          style="
+            float: right;
+            margin-left: 50px;
+            background-color: aliceblue;
+            border-radius: 5px;
+          "
+        >
+          <a href="maps.html">
+            <img
+              src="assets/gps_icon.png"
+              alt="gps_icon"
+              width="50"
+              height="50"
+            />
+            <label>GPS</label>
+          </a>
+        </div> -->
+      </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
+    <script src="script.js" type="module"></script>
+    <script src="appInstallPrompt.js" type="module"></script>
+    <script src="sw.js" type="module"></script>
+  </body>
+</html>
