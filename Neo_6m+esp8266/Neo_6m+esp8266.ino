@@ -1,4 +1,4 @@
-// WITH LED SIGNALS
+// WITH LED SIGNALSS
 #include <ESP8266WiFi.h>
 #include <FirebaseESP8266.h>
 #include <SoftwareSerial.h>
