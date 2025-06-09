@@ -9,6 +9,8 @@
     <link rel="manifest" href="manifest.json" />
     <title>NimTechnology</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
       a {
         color: #fff;
@@ -164,10 +166,91 @@
         </div> -->
       </div>
     </footer>
+
+    <!-- ...existing code... -->
+
+    <!-- Floating Map Button -->
+    <button
+      id="mapOverviewBtn"
+      style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #2196f3;
+        color: #fff;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        font-size: 28px;
+        z-index: 1000;
+        cursor: pointer;
+      "
+    >
+      &#128506;
+    </button>
+
+    <!-- Modal for Map -->
+    <div
+      id="mapModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 90vw;
+          max-height: 90vh;
+          position: relative;
+        "
+      >
+        <button
+          id="closeMapModal"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f44336;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+          "
+        >
+          &times;
+        </button>
+        <h3>All Trackers Overview</h3>
+        <div
+          id="overviewMap"
+          style="width: 80vw; height: 60vh; min-width: 300px; min-height: 300px"
+        ></div>
+      </div>
+    </div>
+
+    <!-- ...existing code... -->
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js"></script>
     <script src="script.js" type="module"></script>
     <script src="appInstallPrompt.js" type="module"></script>
     <script src="sw.js" type="module"></script>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="overviewMap.js" type="module"></script>
   </body>
 </html>
