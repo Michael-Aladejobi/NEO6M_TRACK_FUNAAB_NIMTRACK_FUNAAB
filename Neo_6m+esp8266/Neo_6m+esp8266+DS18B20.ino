@@ -5,7 +5,7 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-// Pin Definitions
+// Pin Definitions...
 #define RX_PIN 14
 #define TX_PIN 12
 #define GPS_BAUD 9600
