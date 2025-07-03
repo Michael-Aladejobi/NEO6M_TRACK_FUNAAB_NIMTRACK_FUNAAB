@@ -28,20 +28,17 @@ const db = getDatabase(app);
 const gps1Ref = ref(db, "trackers/gps1");
 const gps2Ref = ref(db, "trackers/gps2");
 
-// Function to convert 24-hour time to 12-hour format
-function convertTo12HourFormat(time24) {
-  // Check if time24 is valid
-  if (!time24 || typeof time24 !== 'string') return time24;
-  
-  // Extract hours and minutes
-  const [hours, minutes] = time24.split(':');
-  let hour = parseInt(hours, 10);
-  const suffix = hour >= 12 ? 'PM' : 'AM';
-  
-  // Convert to 12-hour format
-  hour = ((hour + 11) % 12 + 1);
-  
-  return `${hour}:${minutes} ${suffix}`;
+// Function to convert 24-hour time to 12-hour format with AM/PM
+function formatTo12Hour(timeString) {
+  const date = new Date(timeString);
+  if (isNaN(date)) return timeString; // fallback if timestamp isn't valid
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12 || 12; // convert to 12-hour format
+  return `${hours}:${minutes} ${ampm}, ${date.toLocaleDateString()}`;
 }
 
 // Function to update the UI with GPS data
@@ -49,9 +46,7 @@ function updateUI(sensorId, data) {
   const sensorElement = document.querySelector(`#${sensorId}`);
   if (sensorElement) {
     if (data) {
-      // Convert timestamp to 12-hour format
-      const formattedTime = convertTo12HourFormat(data.timestamp);
-      
+      const formattedTime = formatTo12Hour(data.timestamp);
       sensorElement.querySelector(".status").textContent = "Active";
       sensorElement.querySelector(".distance").innerHTML = `
         <strong>Latitude:</strong> ${data.latitude}, <br>
@@ -73,7 +68,7 @@ function updateUI(sensorId, data) {
 onValue(gps1Ref, (snapshot) => {
   if (snapshot.exists()) {
     const data = snapshot.val();
-    console.log("GPS1 Data:", data); // Debugging
+    console.log("GPS1 Data:", data);
     updateUI("sensor-1", data);
   } else {
     console.log("No data available for gps1");
@@ -85,13 +80,14 @@ onValue(gps1Ref, (snapshot) => {
 onValue(gps2Ref, (snapshot) => {
   if (snapshot.exists()) {
     const data = snapshot.val();
-    console.log("GPS2 Data:", data); // Debugging
+    console.log("GPS2 Data:", data);
     updateUI("sensor-2", data);
   } else {
     console.log("No data available for gps2");
     updateUI("sensor-2", null);
   }
 });
+
 
 
 // Perfectly but time in 24 hours
