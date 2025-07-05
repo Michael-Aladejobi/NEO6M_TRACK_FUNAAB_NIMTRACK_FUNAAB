@@ -8,7 +8,7 @@
 #define RX_PIN 14
 #define TX_PIN 12
 #define GPS_BAUD 9600
-#define LED_ON_PIN D1     // LED to indicate ESP is on
+#define LED_ON_PIN D1     // LED to indicate ESP is on...
 #define LED_BLINK_PIN D2  // LED to blink when GPS receives data
 
 // WiFi Credentials
