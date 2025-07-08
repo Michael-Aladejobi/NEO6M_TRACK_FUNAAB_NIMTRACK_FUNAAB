@@ -12,8 +12,8 @@
 #define LED_BLINK_PIN D2  // LED to blink when GPS receives data
 
 // WiFi Credentials
-const char* ssid = "@mayorgt_";       
-const char* password = "11111111xyz"; 
+const char* ssid = "mayorgt_";       
+const char* password = "00000000sxyz"; 
 
 // Firebase Credentials
 #define FIREBASE_HOST "virtualfencingtracker-funaab-default-rtdb.firebaseio.com"
@@ -29,7 +29,7 @@ TinyGPSPlus gps;
 SoftwareSerial gpsSerial(RX_PIN, TX_PIN);
 
 // Fixed Tracker ID
-String trackerID1 = "gps1"; 
+String trackerID2 = "gps2"; 
 
 void setup() {
     Serial.begin(115200);
@@ -103,7 +103,7 @@ void loop() {
         Serial.print("Timestamp: "); Serial.println(timestamp);
 
         // Send to Firebase under the fixed tracker ID
-        String trackerPath = "/trackers/" + trackerID1;
+        String trackerPath = "/trackers/" + trackerID2;
         
         if (Firebase.setFloat(firebaseData, trackerPath + "/latitude", latitude)) {
             Serial.println("Latitude sent to Firebase.");
